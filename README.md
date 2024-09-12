@@ -15,6 +15,7 @@ Tux shell is a simplistic shell that allows users to execute commands in a Unix-
 To use Tux Shell, you need to have a Unix-like operating system installed on your machine.
 
 ### Installation
+<img src="Install.gif" alt="Install" width="600" height="400">
 
 1. Clone the Tux Shell repository from GitHub:
   
