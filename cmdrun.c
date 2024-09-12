@@ -408,7 +408,9 @@ int help_exec(command_t *cmd){
   //   write(STDERR_FILENO, buf, strlen(buf));
   //   return 1;
   // }
+  (void)cmd; // ignore warning
   char buf[1000];
+  
   // TODO: Add help message for each command
   sprintf(buf, "Tux shell - a simple shell. \nThese shell commands are defined internally. Type 'help' to see this list. \n");
   write(STDOUT_FILENO, buf, strlen(buf));
