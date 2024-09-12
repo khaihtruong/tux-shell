@@ -448,7 +448,6 @@ cmd_line_parse(parsestate_t *parsestate, int in_parens)
 	return NULL;
 }
 
-
 /*
  * cmd_print(command, indent)
  *
@@ -471,10 +470,6 @@ cmd_print(command_t *cmd, int indent)
 	// More than MAXTOKENS is an error
 	assert(argc <= MAXTOKENS);
 
-	printf("%*s[%d args", indent, "", argc);
-	for (i = 0; i < argc; i++)
-		printf(" \"%s\"", cmd->argv[i]);
-
 	// Print redirections
 	if (cmd->redirect_filename[STDIN_FILENO])
 		printf(" <%s", cmd->redirect_filename[STDIN_FILENO]);
@@ -488,8 +483,6 @@ cmd_print(command_t *cmd, int indent)
 		printf("\n");
 		cmd_print(cmd->subshell, indent + 2);
 	}
-
-	printf("] ");
 	switch (cmd->controlop) {
 	case TOK_SEMICOLON:
 		printf(";");
@@ -507,15 +500,10 @@ cmd_print(command_t *cmd, int indent)
 		printf("||");
 		break;
 	case TOK_END:
-		// we write "END" as a dot
-		printf(".");
 		break;
 	default:
 		assert(0);
 	}
-
-	// Done!
-	printf("\n");
 
 	// if next is NULL, then controlop should be CMD_END, CMD_BACKGROUND,
 	// or CMD_SEMICOLON
