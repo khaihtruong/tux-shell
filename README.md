@@ -24,7 +24,7 @@ To use Tux Shell, you need to have a Unix-like operating system installed on you
 2. Navigate to the Tux Shell directory:
   
       ```bash
-      cd tsh
+      cd tux_shell
       ```
 3. Compile the source code:
   
